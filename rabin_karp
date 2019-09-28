@@ -1,0 +1,76 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int ascie(int a)
+{
+	return(a-96);
+}
+int main()
+{
+	char t[25],p[10];
+	cin>>t>>p;
+	int a,b,c,d,i,j,k=0,q=0,s=0,r=0,x=0,z=0;
+	a=strlen(t);
+	b=strlen(p);
+	int tt[a],pp[b];
+	for(i=0;i<a;i++)
+	{
+		tt[i]=ascie((int)t[i]);
+	}
+	for(i=0;i<b;i++)
+	{
+		pp[i]=ascie((int)p[i]);
+	}
+	for(i=0;i<b;i++)
+	{
+		s=s+pp[i];
+	}
+	for(i=0;i<b;i++)
+	{
+		q=q+tt[i];
+	}
+	if(q==s)
+	{
+		for(i=0;i<b;i++)
+		{	
+			if(tt[i]!=pp[i])
+			{
+				r=1;
+				break;
+			}
+		}
+		if(r==0)
+		{
+			cout<<"found";
+			return 0;
+		}
+		r=0;
+	
+	}
+	for(i=b;i<a;i++)
+	{
+		q=q-tt[i-b]+tt[i];
+		if(q==s)
+	{	k=0;
+		for(j=i-b+1;j<i+1;j++)
+		{	
+			if(tt[j]!=pp[k])
+			{
+				r=1;
+				break;
+			}
+			k++;
+		}
+		if(r==0)
+		{
+			cout<<"found";
+			return 0;
+		}
+		r=0;
+	
+	}
+		
+	}
+	cout<<"not found";
+
+}
